@@ -39,21 +39,21 @@ The following **additional** features are implemented:
 ## Video Walkthrough (GIF)
 
 If you recorded multiple GIFs for all the implemented features, you can add them here:
-![](gif1-link-here)
-![](gif2-link-here)
-![](gif3-link-here)
-![](gif4-link-here)
+![](https://github.com/KevinGomes/CodePath-SITE-prework/blob/main/walkthrough_prework_00.gif)
+![](https://github.com/KevinGomes/CodePath-SITE-prework/blob/main/walkthrough_prework_01.gif)
 
 ## Reflection Questions
 1. If you used any outside resources to help complete your submission (websites, books, people, etc) list them here. 
-https://stackoverflow.com
-https://developer.mozilla.org/en-US/docs/Web/CSS
-https://developer.mozilla.org/en-US/docs/Web/HTML
-https://developer.mozilla.org/en-US/docs/Web/JavaScript
-https://mixbutton.com/mixing-articles/music-note-to-frequency-chart
+* https://stackoverflow.com
+* https://developer.mozilla.org/en-US/docs/Web/CSS
+* https://developer.mozilla.org/en-US/docs/Web/HTML
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript
+* https://mixbutton.com/mixing-articles/music-note-to-frequency-chart
 
 2. What was a challenge you encountered in creating this submission (be specific)? How did you overcome it? (recommended 200 - 400 words) 
-[YOUR ANSWER HERE]
+        The major challenge I faced came with the implementation of the decreasing of playback speed. To add this feature to my website I eliminated the constant modifier from the "holdTime" variable. Then after the end of each turn the playback speed would decrease by 100 milliseconds. This worked well until I gave users three chances to make a mistake before they see a game over alert. In the case of an incorrect guess the game would replay the last sequence in order to give the player another chance; at the time the playback speed would continue to decrease during this replay, which in turn made the game more difficult and defeated the purpose of the second chance. Even worse, due to this three strike rule the total number of rounds that could be played in a single game went from eight to ten. This resulted in the playback speed dropping a full 1000 milliseconds, leaving barely any time for users to see the pattern and absolutely no time for audio to play. 
+        
+        I was able to fix this issue by adding an additional check within the "playClueSequence()" function. The three strikes that the player had were counted by a "wrongGuesses" variable. Next I created a variable, "wasWrong", to hold the total amount of incorrect guesses that existed before the "playClueSequence()" function was called. I then compared the value of wrongGuesses to the value of wasWrong, if they were the same the last input was correct in which case the playback speed would decrease normally. However if "wrongGuesses" was greater than "wasWrong" then the last input was incorrect, in which case the "wasWrong" is set equal to "wrongGuesses" and the playback speed remains unchanged.
 
 3. What questions about web development do you have after completing your submission? (recommended 100 - 300 words) 
 [YOUR ANSWER HERE]
